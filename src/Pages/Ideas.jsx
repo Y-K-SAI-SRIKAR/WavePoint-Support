@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './Suggestions.css'
+import './Ideas.css'
 import Silk from '../components/Silk'
 import TextType from '../components/TextType'
 import BlurText from '../components/BlurText'
@@ -29,7 +29,7 @@ const CMT_CONTENT = [
   'We may follow up with you for additional clarity or context. Providing your contact details is optional but appreciated.',
 ]
 
-function Suggestions() {
+function Ideas() {
   const [formData, setFormData] = useState({
     name: '',
     emailId: '',
@@ -479,4 +479,4 @@ function Suggestions() {
   )
 }
 
-export default Suggestions
+export default Ideas

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './Grievance.css'
+import './MyRequests.css'
 import Silk from '../components/Silk'
 import TextType from '../components/TextType'
 import BlurText from '../components/BlurText'
@@ -47,7 +47,7 @@ const initialErrors = {
   files: ''
 }
 
-function Grievance() {
+function MyRequests() {
   const [formData, setFormData] = useState(initialFormData)
   const [errors, setErrors] = useState(initialErrors)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -581,4 +581,4 @@ function Grievance() {
   )
 }
 
-export default Grievance
+export default MyRequests

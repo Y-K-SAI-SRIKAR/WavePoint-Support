@@ -1,4 +1,4 @@
-import './Query.css'
+import './Support.css'
 import Silk from '../components/Silk'
 import TextType from '../components/TextType'
 import BlurText from '../components/BlurText'
@@ -29,7 +29,7 @@ const FTR_CNT = [
   "If NexBot is unable to resolve your query, you may request a live agent during business hours (Monday to Saturday, 9 AM – 7 PM IST) or submit a detailed query via our Grievance Page for a formal response within 48 working hours."
 ]
 
-function Query() {
+function Support() {
   const handleQuoteComplete = () => {
     console.log("Quote animation completed!")
   }
@@ -266,4 +266,4 @@ function Query() {
   )
 }
 
-export default Query
+export default Support

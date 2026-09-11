@@ -1,4 +1,4 @@
-import './Review.css'
+import './FeedBack.css'
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import Silk from '../components/Silk'
@@ -41,7 +41,7 @@ const RVEC_GUD = [
   'Reviews found to be fraudulent or in violation of our community guidelines will be removed.',
 ]
 
-function Review() {
+function FeedBack() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -752,4 +752,4 @@ function Review() {
   )
 }
 
-export default Review
+export default FeedBack

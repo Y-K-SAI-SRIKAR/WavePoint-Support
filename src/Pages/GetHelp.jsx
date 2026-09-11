@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Plus } from 'lucide-react'
-import './Assistance.css'
+import './GetHelp.css'
 import Silk from '../components/Silk'
 import TextType from '../components/TextType'
 import BlurText from '../components/BlurText'
@@ -257,7 +257,7 @@ function FAQItem({ question, answer }) {
   )
 }
 
-function Assistance() {
+function GetHelp() {
   const [selectedFaqCategory, setSelectedFaqCategory] = useState('ASSTNC')
 
   const handleQuoteComplete = () => {
@@ -653,4 +653,4 @@ function Assistance() {
   )
 }
 
-export default Assistance
+export default GetHelp
