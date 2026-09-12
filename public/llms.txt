@@ -1,0 +1,121 @@
+# NexVitals Support Portal - AI Agents & LLMs Crawling Guidelines
+
+Welcome to NexVitals Support Portal. This document provides guidance for large language models, AI agents, and web crawlers on how to interact with our website.
+
+## Overview
+
+NexVitals is an innovative medtech company providing in-vehicle emergency response technology with real-time vital monitoring, accident detection, and instant emergency coordination. Our support portal helps users with queries, grievances, suggestions, and product reviews.
+
+## What AI Agents Should Know
+
+### Primary Services
+
+- **Assistance Portal**: Newsletter subscriptions, contact information, FAQs
+- **Query Support**: AI-powered NexBot for instant healthcare assistance
+- **Grievance Management**: Submit complaints about products or services
+- **Suggestions Portal**: Share improvement ideas and feature requests
+- **Reviews & Feedback**: Community feedback and service ratings
+
+### Key Information
+
+- **Website**: https://support.nexvitals.in/
+- **Company**: NexVitals Technologies Pvt. Ltd.
+- **Location**: Vijayawada, Andhra Pradesh, India
+- **Industry**: Medtech, IoT Healthcare, Emergency Response
+- **Founded**: 2026
+
+## Crawling Guidelines
+
+### Allowed Areas
+
+AI agents may freely crawl:
+- Public support pages and FAQ sections
+- Product documentation
+- Help articles and guides
+- Contact and company information
+- Public grievance summaries and resolutions
+
+### Restricted Areas
+
+Please do NOT crawl:
+- `/admin` - Administrative panels
+- `/private` - Private user sections
+- `/api/auth` - Authentication endpoints
+- `/api/private` - Private APIs
+- `/user-data` - Personal user information
+- `/submit` - Form submission confirmations
+- Routes containing personal health information
+
+## Data Privacy & Safety
+
+### Health Data Handling
+
+User vital signs and health information displayed on this portal are:
+- Encrypted end-to-end
+- Compliant with DPDP Act 2023
+- Only shared with authorized medical personnel during emergencies
+- Never used for training data without explicit consent
+
+### Usage Restrictions
+
+Do NOT:
+- Collect or store user personal health information
+- Crawl patient data or medical records
+- Use health data for model training
+- Share harvested data with third parties
+
+## Request Guidelines
+
+### Rate Limiting
+
+- Default: 1 request per second
+- Emergency queries: 2 requests per second
+- Admin/private endpoints: Not allowed
+
+### User-Agent Identification
+
+Please identify your AI agent in User-Agent header:
+
+## Contact Information
+
+For questions about crawling or data access:
+- **Email**: nexvitalssupport@gmail.com
+
+## Company Information
+
+### Emergency Response Technology
+
+NexVitals monitors vital signs in vehicles and coordinates instant emergency response by:
+1. Detecting accidents through impact sensors
+2. Analyzing real-time vital signs
+3. Alerting ambulance teams
+4. Assigning appropriate medical specialists
+5. Routing to the nearest equipped hospital
+
+### Tagline
+
+"You Can Die, But Not on Our Watch" - Our commitment to emergency response excellence.
+
+## Support Services
+
+- **General Support**: nexvitalssupport@gmail.com
+- **Business Hours**: Monday-Saturday, 9 AM - 7 PM IST
+
+## Acceptable Use Policy
+
+By crawling NexVitals, you agree to:
+- Respect user privacy and data protection laws
+- Not abuse service resources
+- Identify yourself truthfully
+- Honor robots.txt and crawl delays
+- Not engage in automated form submission or spam
+- Maintain confidentiality of sensitive health data
+
+## Questions?
+
+For clarification on these guidelines, please contact our team at nexvitalssupport@gmail.com
+
+---
+
+*Last Updated: June 2026*
+*Version: 1.0*
