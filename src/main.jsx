@@ -17,7 +17,7 @@ import Ideas from "./Pages/Ideas.jsx"
 import PreAdLogin from "./Pages/PreAdLogin.jsx"
 import ResetPassword from "./Pages/ResetPassword.jsx"
 import Updates from "./Pages/Updates.jsx"
-import PrivacyPolicy from "./pages/PrivacyPolicy";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
 
 function ProtectedAdminRoute({ children }) {
   const isAdminAuthenticated = sessionStorage.getItem("isAdminAuthenticated") === "true"
