@@ -245,7 +245,7 @@ const FileUploadChat = () => {
           <div className="ChatBot-header">
             <div className="ChatBot-header-left">
               <span className="ChatBot-status-dot" />
-              <h3 className="ChatBot-header-title">Resolve Your Query With NexBot</h3>
+              <h3 className="ChatBot-header-title">Resolve Your Query With WPBot</h3>
               <span className="ChatBot-header-status">Online</span>
             </div>
 

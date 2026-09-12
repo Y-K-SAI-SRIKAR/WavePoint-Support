@@ -17,6 +17,7 @@ import Ideas from "./Pages/Ideas.jsx"
 import PreAdLogin from "./Pages/PreAdLogin.jsx"
 import ResetPassword from "./Pages/ResetPassword.jsx"
 import Updates from "./Pages/Updates.jsx"
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 function ProtectedAdminRoute({ children }) {
   const isAdminAuthenticated = sessionStorage.getItem("isAdminAuthenticated") === "true"
@@ -45,6 +46,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/feedback" element={<FeedBack />} />
         <Route path="/ideas" element={<Ideas />} />
         <Route path="/updates" element={<Updates />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
