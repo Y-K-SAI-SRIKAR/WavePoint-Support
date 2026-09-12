@@ -1,6 +1,5 @@
 import { motion, useReducedMotion } from "motion/react"
-import { FrameIcon } from "lucide-react"
-import myLogo from "../assets/nvlogo.svg";
+import myLogo from "../assets/logo.svg";
 
 
 const footerLinks = [
@@ -8,23 +7,23 @@ const footerLinks = [
     label: "Product",
     links: [
       { title: "Features", href: "" },
-      { title: "Pricing", href: "https://nexvitals.vercel.app/" },
+      { title: "Pricing", href: "" },
     ],
   },
   {
     label: "Resources",
     links: [
-      { title: "Blog", href: "https://nexvitals.blogspot.com" },
+      { title: "Blog", href: "" },
       { title: "Usage Manuals", href: "" },
     ],
   },
   {
     label: "Social Links",
     links: [
-      { title: "Twitter", href: "https://x.com/NexVitals", icon: TwitterSvg },
-      { title: "Instagram", href: "https://www.instagram.com/nexvitals/", icon: InstagramSvg },
-      { title: "YouTube", href: "https://www.youtube.com/@NexVitals-official", icon: YouTubeSvg },
-      { title: "LinkedIn", href: "https://www.linkedin.com/company/nexvitals/", icon: LinkedInSvg },
+      { title: "Twitter", href: "", icon: TwitterSvg },
+      { title: "Instagram", href: "", icon: InstagramSvg },
+      { title: "YouTube", href: "", icon: YouTubeSvg },
+      { title: "LinkedIn", href: "", icon: LinkedInSvg },
     ],
   },
 ]
@@ -36,9 +35,9 @@ export function Footer() {
 
       <div className="site-footer__grid">
         <AnimatedContainer className="site-footer__brand">
-          <img src={myLogo} alt="NexVitals Logo" className="site-footer__logo"/>
+          <img src={myLogo} alt="Logo" className="site-footer__logo"/>
           <p className="site-footer__copyright">
-            © {new Date().getFullYear()} NexVitals. All rights reserved.
+            © {new Date().getFullYear()} WavePoint. All rights reserved.
           </p>
         </AnimatedContainer>
 

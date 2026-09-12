@@ -1,39 +1,39 @@
 import { useState } from 'react'
-import './Grievance.css'
+import './MyRequests.css'
 import Silk from '../components/Silk'
 import TextType from '../components/TextType'
 import BlurText from '../components/BlurText'
 import SplitText from '../components/SplitText'
 
 const GR_CAT = [
-  "Device Malfunction or Sensor Failure",
-  "Delayed Emergency Response or Alert",
-  "Incorrect Hospital or Specialist Assignment",
-  "Data Privacy or Unauthorized Data Sharing",
-  "App or Software Performance Issues",
-  "Billing and Subscription Disputes",
-  "Customer Service Experience",
-  "Other Service-Related Issues"
+  "Project Setup or Configuration Issues",
+  "Task Assignment or Status Issues",
+  "Workflow or Process Problems",
+  "Workspace Access or Permission Issues",
+  "App or Platform Performance Issues",
+  "Billing and Subscription Issues",
+  "Team Collaboration Experience",
+  "Other Wavepoint-Related Issues",
 ]
 
 const GR_CON = [
-  "If you have experienced a failure in device performance, emergency response timing, hospital routing accuracy, specialist assignment, data privacy, or any other aspect of our service, please report it here.",
-  "Every complaint is logged, assigned a unique ticket number, and reviewed by our product and operations team within 48 business hours.",
-  "We do not treat complaints as inconveniences — we treat them as opportunities to build a more reliable system."
+  "If you face any issue with Wavepoint, report it here so our team can review it.",
+  "Every complaint is logged and reviewed by our support team.",
+  "Your feedback helps us improve Wavepoint and provide a better experience.",
 ]
 
 const GR_FC = [
-  "Our technical support team handles all hardware diagnostics, device connectivity issues, software bugs, and integration problems with hospital systems or ambulance networks.",
-  "You can reach them directly for faster resolution of technical complaints.",
-  "Technical Helpdesk Email: nexvitalssupport@gmail.com",
-  "Direct Support Line: +91-9182424505",
-  "Remote Diagnostics Service: Available Monday to Saturday, 10 AM – 6 PM IST",
-  "On-Site Support: Available for fleet operators and enterprise clients. Raise a request via email to schedule a visit."
+  "Our technical support team handles platform errors, account access issues, workflow problems, and integration-related concerns.",
+  "Contact our support team for assistance with technical complaints and troubleshooting.",
+  "Support Email: support@wavepoint.com",
+  "Support Hours: Monday to Saturday, 9 AM – 7 PM IST",
+  "Remote Assistance: Available during support hours.",
+  "Enterprise Support: Priority assistance is available for eligible business customers."
 ]
 
 const initialFormData = {
   email: '',
-  deviceId: '',
+  clientId: '',
   category: '',
   complaint: '',
   files: []
@@ -41,13 +41,13 @@ const initialFormData = {
 
 const initialErrors = {
   email: '',
-  deviceId: '',
+  clientId: '',
   category: '',
   complaint: '',
   files: ''
 }
 
-function Grievance() {
+function MyRequests() {
   const [formData, setFormData] = useState(initialFormData)
   const [errors, setErrors] = useState(initialErrors)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -82,9 +82,9 @@ function Grievance() {
     return emailRegex.test(email.trim())
   }
 
-  const validateDeviceId = (deviceId) => {
-    const deviceRegex = /^[A-Za-z0-9]{10}$/
-    return deviceRegex.test(deviceId.trim())
+  const validateClientId = (clientId) => {
+    const clientRegex = /^[A-Za-z0-9]{10}$/
+    return clientRegex.test(clientId.trim())
   }
 
   const validateFiles = (files) => {
@@ -108,10 +108,10 @@ function Grievance() {
         if (!validateEmail(value)) return 'Enter a valid email ID.'
         return ''
 
-      case 'deviceId':
-        if (!value.trim()) return 'NexVitals Device ID is required.'
-        if (!validateDeviceId(value)) {
-          return 'Device ID must be exactly 10 alphanumeric characters.'
+      case 'clientId':
+        if (!value.trim()) return 'Client ID is required.'
+        if (!validateClientId(value)) {
+          return 'Client ID must be exactly 10 alphanumeric characters.'
         }
         return ''
 
@@ -134,7 +134,7 @@ function Grievance() {
   const validateForm = () => {
     const newErrors = {
       email: validateField('email', formData.email),
-      deviceId: validateField('deviceId', formData.deviceId),
+      clientId: validateField('clientId', formData.clientId),
       category: validateField('category', formData.category),
       complaint: validateField('complaint', formData.complaint),
       files: validateField('files', formData.files)
@@ -146,8 +146,9 @@ function Grievance() {
 
   const handleChange = (e) => {
     const { name, value } = e.target
+
     const cleanedValue =
-      name === 'deviceId'
+      name === 'clientId'
         ? value.replace(/[^A-Za-z0-9]/g, '').slice(0, 10)
         : value
 
@@ -244,7 +245,7 @@ function Grievance() {
       <div className="Grievance-Heading">
         <TextType
           text={[
-            "- Welcome to NexVitals Grievance Cell ! -",
+            "- Welcome to Wavepoint Support ! -",
             "- Your Concerns, Our Commitment -"
           ]}
           typingSpeed={70}
@@ -261,7 +262,7 @@ function Grievance() {
 
       <div className="Grievance-subheading">
         <BlurText
-          text="Every Complaint Is a Signal That Helps Us Strengthen the Systems That Protect Lives"
+          text="Every Concern Helps Us Improve and Create a Better Experience for Our Users"
           delay={200}
           animateBy="words"
           direction="bottom"
@@ -276,7 +277,7 @@ function Grievance() {
             <div className="Grievance-types-heading">
               <SplitText
                 key="Grievance-types-heading"
-                text="- Tell Us What Went Wrong So We Can Make It Right, Faster -"
+                text="- Tell Us What Went Wrong So We Can Make Wavepoint Better -"
                 className="Grievance-title"
                 delay={45}
                 duration={1.1}
@@ -355,26 +356,33 @@ function Grievance() {
                   </div>
 
                   <div className="Grievance-form-group">
-                    <label htmlFor="deviceId" className="Grievance-label">
-                      NexVitals Device ID
+                    <label htmlFor="clientId" className="Grievance-label">
+                      Client ID
                     </label>
+
                     <input
-                      id="deviceId"
-                      name="deviceId"
+                      id="clientId"
+                      name="clientId"
                       type="text"
-                      className={`Grievance-input ${errors.deviceId ? 'input-error' : ''}`}
-                      placeholder="Enter 10-character device ID"
-                      value={formData.deviceId}
+                      className={`Grievance-input ${errors.clientId ? 'input-error' : ''}`}
+                      placeholder="Enter 10-character client ID"
+                      value={formData.clientId}
                       onChange={handleChange}
                       maxLength={10}
+                      autoComplete="off"
                       disabled={isPosting}
                     />
-                    {errors.deviceId && <span className="Grievance-error">{errors.deviceId}</span>}
+
+                    {errors.clientId && (
+                      <span className="Grievance-error">
+                        {errors.clientId}
+                      </span>
+                    )}
                   </div>
 
                   <div className="Grievance-form-group">
                     <label htmlFor="category" className="Grievance-label">
-                      Grievance Category
+                      Issue Category
                     </label>
                     <select
                       id="category"
@@ -437,13 +445,13 @@ function Grievance() {
                       className="Grievance-submit-btn"
                       disabled={isPosting}
                     >
-                      {isPosting ? 'Posting Grievance...' : 'Post Grievance'}
+                      {isPosting ? 'Submitting Request...' : 'Submit Request'}
                     </button>
                   </div>
 
                   {isSubmitted && (
                     <div className="Grievance-success">
-                      Your grievance has been submitted successfully.
+                      Your support request has been submitted successfully.
                     </div>
                   )}
                 </form>
@@ -452,7 +460,7 @@ function Grievance() {
               <div className="Grievance-form-end">
                 <SplitText
                   key="Grievance-form-ending"
-                  text="Emergency complaints are escalated to our Crisis Response Team within 2 hours"
+                  text="Support requests are reviewed by our team and handled according to their priority."
                   className="Grievance-form-end-text"
                   delay={30}
                   duration={1.05}
@@ -557,7 +565,7 @@ function Grievance() {
                 <div className="Grievance-footer-quote">
                   <SplitText
                     key="Grievance-footer-heading"
-                    text="- Smarter Vehicles. Faster Care. Safer Lives. -"
+                    text="- Better Collaboration. Greater Progress. -"
                     className="Grievance-form-title"
                     delay={30}
                     duration={1.05}
@@ -581,4 +589,4 @@ function Grievance() {
   )
 }
 
-export default Grievance
+export default MyRequests

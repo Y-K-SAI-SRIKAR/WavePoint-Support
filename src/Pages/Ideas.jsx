@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './Suggestions.css'
+import './Ideas.css'
 import Silk from '../components/Silk'
 import TextType from '../components/TextType'
 import BlurText from '../components/BlurText'
@@ -7,29 +7,28 @@ import SplitText from '../components/SplitText'
 import { Form } from '../components/SugestionForm'
 
 const SGF_PARAGRAPHS = [
-  'At NexVitals, we believe that our users — drivers, fleet operators, healthcare professionals, caregivers, and everyday commuters — hold some of the most valuable insights about how our product can evolve.',
-  'You interact with our technology in real-world conditions that no lab can fully replicate. That lived experience is the most honest feedback we can receive.',
-  'Whether you have an idea for a new feature, a better user interface, improved hospital network integration, a more accessible alert system, or an entirely new use case for our technology, we want to hear it.',
-  'Every suggestion submitted here is reviewed by our Research and Development team on a quarterly basis and evaluated for technical feasibility, user impact, and alignment with our mission.',
+  'At Wavepoint, we value ideas from the people who use our platform every day.',
+  'Your feedback helps us improve projects, tasks, workflows, and team collaboration.',
+  'Whether it is a new feature, a better interface, or a simpler way to manage work, we want to hear your ideas.',
+  'Every suggestion helps us make Wavepoint better and easier to use.',
 ]
 
 const SUGGESTION_TYPES = [
-  'We welcome suggestions across all areas of our product and service, including but not limited to:',
-  'New device features or sensor improvements',
-  'Wearable device integration for continuous vital monitoring',
-  'Multilingual app and alert support for regional accessibility',
-  'Expansion of hospital and specialist network partnerships',
-  'Rural and semi-urban emergency coverage improvements',
-  'Insurance provider integration for faster claim processing',
+  'We welcome ideas that can make Wavepoint simpler, smarter, and more useful for teams.',
+  'New project management features',
+  'Better task organization and prioritization',
+  'Improved workflow customization and automation',
+  'Enhanced team collaboration and communication',
+  'Better workspace organization and visibility',
+  'New integrations with popular productivity tools',
 ]
-
 const CMT_CONTENT = [
-  'All suggestions are treated with complete confidentiality. NexVitals does not claim intellectual property rights over any concept submitted through this page.',
-  'Contributors whose ideas are selected for development will be personally acknowledged in our quarterly Innovation Report and, where applicable, invited to participate in the beta testing phase of the feature they inspired.',
-  'We may follow up with you for additional clarity or context. Providing your contact details is optional but appreciated.',
+  'All ideas shared through this page are handled responsibly and used only to help improve Wavepoint.',
+  'Selected suggestions may be reviewed by our product team and considered for future features or improvements.',
+  'We may contact you for additional details or clarification. Providing your contact information is optional.',
 ]
 
-function Suggestions() {
+function Ideas() {
   const [formData, setFormData] = useState({
     name: '',
     emailId: '',
@@ -150,8 +149,8 @@ function Suggestions() {
       <div className="Suggestions-Heading">
         <TextType
           text={[
-            '- Welcome to NexVitals Suggestions ! -',
-            '- Shape the Future of Emergency Response -',
+            '- Welcome to Wavepoint Ideas ! -',
+            '- Help Shape the Future of Teamwork -',
           ]}
           typingSpeed={70}
           deletingSpeed={45}
@@ -167,7 +166,7 @@ function Suggestions() {
 
       <div className="Suggestions-subheading">
         <BlurText
-          text="The Best Innovation Comes from the People Who Experience Our Technology Every Day — and That Means You"
+          text="The Best Ideas Come from the People Who Use Wavepoint Every Day and That Means You"
           delay={200}
           animateBy="words"
           direction="bottom"
@@ -330,7 +329,7 @@ function Suggestions() {
                     id="suggestion"
                     name="suggestion"
                     className="form-textarea"
-                    placeholder="Help Us Build Technology That Saves More Lives, More Efficiently"
+                    placeholder="Share an Idea That Could Make Wavepoint Better"
                     value={formData.suggestion}
                     onChange={handleChange}
                     required
@@ -457,7 +456,7 @@ function Suggestions() {
             <div className="Suggestions-footer">
               <SplitText
                 key="Suggestions-footer"
-                text="- From Road to Recovery — Powered by NexVitals ! -"
+                text="- From Planning to Progress, Powered by Wavepoint ! -"
                 className="suggestions-footer-text"
                 delay={45}
                 duration={1.1}
@@ -478,5 +477,4 @@ function Suggestions() {
     </div>
   )
 }
-
-export default Suggestions
+export default Ideas

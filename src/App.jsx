@@ -6,13 +6,12 @@ import TextType from "./components/TextType"
 import SplitText from "./components/SplitText"
 import BlurText from "./components/BlurText"
 import ClickSpark from "./components/ClickSpark"
-import { Footer } from "./components/Footer"
 import CircularText from "./components/CircularText"
 import PillNav from "./components/PillNav"
-import ContactUsButton from "./components/Button"
+import { Footer } from "./components/Footer"
 import "./App.css"
 
-const logo = "/NEX VITALS LOGO.svg"
+const logo = "/logo.svg"
 
 const LOADER_DURATION = 14000
 const FADE_DURATION = 900
@@ -34,27 +33,24 @@ const SHUFFLE_PROPS = {
 }
 
 const ABOUT_PARAGRAPHS = [
-  "NexVitals is an innovative MedTech company focused on transforming emergency healthcare response using intelligent monitoring systems and real-time medical connectivity.",
-  "Our mission is to reduce emergency response time and improve survival outcomes by integrating smart health monitoring devices with advanced accident detection technology.",
-  "NexVitals devices are designed to be installed inside vehicles, continuously monitoring critical vital parameters and detecting severe accident conditions instantly. When a major accident occurs, our system automatically triggers emergency protocols, notifying paramedics, ambulance teams, and healthcare providers within seconds.",
-  "At the same time, the victim's real-time vital data is securely shared with the most suitable medical specialists, helping doctors prepare immediate treatment even before the patient reaches the hospital.",
-  "To ensure faster and smarter emergency care, NexVitals identifies the most suitable nearby hospital by evaluating emergency readiness, specialist support, response efficiency, and immediate treatment capability.",
+  "Wavepoint is a modern SaaS platform that helps teams organize work and stay focused.",
+  "Our mission is to simplify workflows by bringing tools, information, and collaboration into one workspace.",
+  "Wavepoint helps teams manage tasks, track progress, and coordinate work with ease.",
+  "With clear visibility and real-time updates, Wavepoint keeps teams aligned and moving forward.",
 ]
 
 const WHY_PARAGRAPHS = [
-  "NexVitals provides advanced emergency healthcare technology at an affordable and accessible cost, making smart medical assistance available for more people and vehicles.",
-  "Our intelligent monitoring system instantly detects severe accidents and automatically triggers emergency response protocols in real time.",
-  "NexVitals continuously monitors critical health vitals and securely shares real-time medical data with healthcare professionals during emergencies.",
-  "Our platform identifies the nearest suitable hospital based on emergency support availability, specialist access, and bed availability for faster treatment.",
-  "NexVitals creates seamless connectivity between patients, ambulances, doctors, specialists, and hospitals through one integrated healthcare ecosystem.",
+  "Wavepoint brings your team's work, tasks, and workflows together in one organized and easy-to-use platform.",
+  "Our platform helps teams simplify complex processes, track progress, and stay aligned with clear visibility across their work.",
+  "With centralized information and real-time updates, Wavepoint reduces unnecessary complexity and keeps everyone moving in the same direction.",
+  "Built for flexibility and growth, Wavepoint helps businesses work smarter, collaborate better, and stay on course as they scale.",
 ]
 
 const WHAT_EXP = [
-  "We are seeking seed and pre-Series A investors with a background in medtech, automotive safety, or healthtech who bring not just capital but strategic connections to hospital systems, insurance networks, and regulatory bodies — and a long-term commitment to scaling a solution that the world genuinely needs.",
-  "We need experienced guides — medical directors, deep-tech entrepreneurs, regulatory experts, and connected health leaders — who can challenge us with honest advice, open the right doors, and help us navigate the complex landscape of hardware, healthcare compliance, and global market entry.",
-  "We are actively partnering with hospitals, ambulance networks, fleet operators, vehicle manufacturers, and insurance providers who are ready to integrate into our emergency response infrastructure and co-build a connected system that works seamlessly when lives are on the line.",
-  "We are looking for support from state and national health and transport bodies who can back NexVitals through policy mandates, public procurement, and regulatory fast-tracking — turning a proven solution into a nationally implemented standard of road safety.",
-  "Above all, we expect alignment of purpose. Every investor, mentor, and stakeholder who joins NexVitals becomes a co-author of a global movement — and in return, we commit to full transparency, regular impact reporting, and a seat at the table as we define the future of emergency response.",
+  "We want to help teams simplify work, organize workflows, and manage everything in one place.",
+  "We value your feedback and use it to improve Wavepoint and build better features.",
+  "We welcome partnerships and integrations that make Wavepoint more useful and connected.",
+  "We believe great software grows with its users. We listen, improve, and keep teams moving forward.",
 ]
 
 let loaderAlreadyShown = false
@@ -212,23 +208,23 @@ export default function App() {
               <div className="heading-row">
                 <Shuffle
                   {...SHUFFLE_PROPS}
-                  text="N"
+                  text="W"
                   style={{ color: "#4a90ff", fontSize: "7.5rem" }}
                 />
                 <Shuffle
                   {...SHUFFLE_PROPS}
-                  text="ex"
+                  text="ave"
                   style={{ color: "#ffffff" }}
                 />
                 <span className="heading-space" />
                 <Shuffle
                   {...SHUFFLE_PROPS}
-                  text="V"
+                  text="P"
                   style={{ color: "#ff4444", fontSize: "7.5rem" }}
                 />
                 <Shuffle
                   {...SHUFFLE_PROPS}
-                  text="itals"
+                  text="oint"
                   style={{ color: "#ffffff" }}
                 />
               </div>
@@ -236,7 +232,7 @@ export default function App() {
               {showHeroIntro && (
                 <SplitText
                   key="split-after-loader"
-                  text="- BY PADMA VYUHA -"
+                  text="- WORK SMART. STAY ON COURSE -"
                   className="split-text-sub"
                   delay={50}
                   duration={1.25}
@@ -254,7 +250,7 @@ export default function App() {
 
               {showHeroIntro && (
                 <TextType
-                  text={["Welcome to NexVitals Support !"]}
+                  text={["Welcome to WavePoint Support !"]}
                   typingSpeed={70}
                   deletingSpeed={45}
                   pauseDuration={1200}
@@ -273,13 +269,13 @@ export default function App() {
                     logo={logo}
                     logoAlt="Company Logo"
                     items={[
-                      { label: "Assistance", href: "/Assistance" },
-                      { label: "Queries", href: "/Query" },
-                      { label: "Grievances", href: "/Grievance" },
-                      { label: "Suggestions", href: "/Suggestions" },
-                      { label: "Review", href: "/Review" },
-                      { label: "Updates", href: "/Updates" },
-                      { label: "Admin Login", href: "/PreAdmin" },
+                      { label: "GET HELP", href: "/gethelp" },
+                      { label: "SUPPORT", href: "/support" },
+                      { label: "MY REQUESTS", href: "/myrequests" },
+                      { label: "IDEAS", href: "/ideas" },
+                      { label: "FEEDBACK", href: "/feedback" },
+                      { label: "UPDATES", href: "/Updates" },
+                      { label: "SIGN IN", href: "/PreAdmin" },
                     ]}
                     activeHref="/"
                     ease="power2.easeOut"
@@ -300,7 +296,7 @@ export default function App() {
               <div className="quote-inner">
                 <BlurText
                   key="quote-blur"
-                  text="When Every Moment Counts, NexVitals Delivers Faster Emergency Response And Smarter Medical Assistance."
+                  text="When Work Moves Fast, Wavepoint Keeps You On Course With Smarter Tools And Reliable Support."
                   delay={200}
                   animateBy="words"
                   direction="bottom"
@@ -317,7 +313,7 @@ export default function App() {
                 <div className="about-title-wrap">
                   <SplitText
                     key="about-heading"
-                    text="- ABOUT NexVitals -"
+                    text="- ABOUT WavePoint -"
                     className="about-title"
                     delay={45}
                     duration={1.1}
@@ -365,7 +361,7 @@ export default function App() {
                 <div className="why-title-wrap">
                   <SplitText
                     key="why-heading"
-                    text="- WHY NexVitals ? -"
+                    text="- WHY WavePoint ? -"
                     className="why-title"
                     delay={45}
                     duration={1.1}
@@ -412,7 +408,7 @@ export default function App() {
               <div className="What-title-wrap">
                 <SplitText
                   key="What-heading"
-                  text="- Open to Strategic Partnerships, Investment, and Mentorship for Global Deployment -"
+                  text="- Open to Strategic Partnerships, Investment -"
                   className="What-title"
                   delay={45}
                   duration={1.1}
@@ -452,20 +448,12 @@ export default function App() {
               </div>
             </section>
           )}
-
-          {showContact && (
-            <section className="contact-button-section">
-              <div className="contact-button-wrap">
-                <ContactUsButton />
-              </div>
-            </section>
-          )}
-
+          
           {showMark && (
             <section className="mark-section">
               <div className="mark-inner">
                 <CircularText
-                  text="NEXVITALS*BY*PADMA*VYUHA*"
+                  text="WavePoint * Work-Smart * "
                   onHover="speedUp"
                   spinDuration={15}
                   className="mark-class"
@@ -479,6 +467,7 @@ export default function App() {
               <Footer />
             </div>
           )}
+
         </main>
       </ClickSpark>
     </div>

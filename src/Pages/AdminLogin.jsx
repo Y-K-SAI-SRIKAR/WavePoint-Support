@@ -256,7 +256,7 @@ function AuthSignIn({ onForgotPassword, onLoginSuccess }) {
       <div className="admin-auth-header">
         <h1 className="admin-auth-title">Welcome back</h1>
         <p className="admin-auth-subtitle">
-          Sign in with your authorized NexVitals admin email
+          Sign in with your authorized WavePoint admin email
         </p>
       </div>
 
@@ -268,7 +268,7 @@ function AuthSignIn({ onForgotPassword, onLoginSuccess }) {
           <Input
             id="email"
             type="email"
-            placeholder="admin@nexvitals.site"
+            placeholder="admin@wavepoint.in"
             disabled={formState.isLoading}
             className={errors.email ? "admin-input-error" : ""}
             {...register("email")}

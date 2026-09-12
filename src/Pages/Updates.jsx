@@ -7,11 +7,11 @@ import BlurText from '../components/BlurText';
 
 const UPD_CATEGORIES = {
   'product-updates': 'Product Updates',
-  'workflow-announcements': 'Workflow Announcements',
+  'workflow-updates': 'Workflow Updates',
   'maintenance-notices': 'Maintenance Notices',
-  'partnership-network-expansion': 'Partnership & Expansion',
-  'policy-compliance': 'Policy & Compliance',
-  'internal-team-announcements': 'Team Announcements',
+  'feature-releases': 'Feature Releases',
+  'policy-updates': 'Policy Updates',
+  'team-announcements': 'Team Announcements',
 };
 
 // Private fields that should NOT be displayed on frontend (both camelCase and PascalCase variations)
@@ -37,42 +37,42 @@ const HIDDEN_UPDATE_FIELDS = new Set([
 function normalizeFieldNames(obj) {
   const normalized = {};
   
-  const fieldMapping = {
+    const fieldMapping = {
     // Core fields
     'UpdateId': 'updateId',
     'Category': 'category',
     'PostedBy': 'postedBy',
     'PostedAt': 'postedAt',
-    
+
     // Product Updates
     'UpdateTitle': 'updateTitle',
     'DateOfRelease': 'dateOfRelease',
     'VersionNumber': 'versionNumber',
     'WhatChanged': 'whatChanged',
     'WhoItAffects': 'whoItAffects',
-    
-    // Workflow Announcements
-    'ProtocolUpdate': 'protocolUpdate',
+
+    // Workflow Updates
+    'WorkflowUpdate': 'workflowUpdate',
     'EffectiveFrom': 'effectiveFrom',
     'UpdateDescription': 'updateDescription',
-    'ImplementingDateExpected': 'implementingDateExpected',
-    
+    'ImplementationDate': 'implementationDate',
+
     // Maintenance Notices
     'NoticeTitle': 'noticeTitle',
     'StartDateTime': 'startDateTime',
     'EndDateTime': 'endDateTime',
     'Details': 'details',
-    
-    // Partnership & Expansion
-    'PartnerTitle': 'partnerTitle',
-    'PartnerEffectiveFrom': 'partnerEffectiveFrom',
-    'PartnerDescription': 'partnerDescription',
-    
-    // Policy & Compliance
+
+    // Feature Releases
+    'FeatureTitle': 'featureTitle',
+    'FeatureReleaseDate': 'featureReleaseDate',
+    'FeatureDescription': 'featureDescription',
+
+    // Policy Updates
     'PolicyTitle': 'policyTitle',
     'PolicyEffectiveDate': 'policyEffectiveDate',
     'PolicyDescription': 'policyDescription',
-    
+
     // Team Announcements
     'TeamDate': 'teamDate',
     'AchievementTitle': 'achievementTitle',
@@ -136,11 +136,11 @@ function Updates() {
 
       const grouped = {
         'product-updates': [],
-        'workflow-announcements': [],
+        'workflow-updates': [],
         'maintenance-notices': [],
-        'partnership-network-expansion': [],
-        'policy-compliance': [],
-        'internal-team-announcements': [],
+        'feature-releases': [],
+        'policy-updates': [],
+        'team-announcements': [],
       };
 
       const updates = Array.isArray(result) ? result : result.data || [];
@@ -207,7 +207,7 @@ function Updates() {
         <div className="updates-hero">
           <div className="updates-header">
             <TextType
-              text={['- Welcome to NexVitals Updates ! -']}
+              text={['- Welcome to Wavepoint Updates ! -']}
               typingSpeed={70}
               deletingSpeed={45}
               pauseDuration={1200}
@@ -222,7 +222,7 @@ function Updates() {
 
           <div className="updates-sub-header">
             <BlurText
-              text="- Stay Informed. Stay Prepared. Every Update Brings You Closer to Safer Roads -"
+              text="- Stay Updated. Keep Moving Forward with Wavepoint -"
               delay={100}
               animateBy="letters"
               direction="bottom"
