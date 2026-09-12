@@ -6,27 +6,23 @@ import SplitText from '../components/SplitText'
 import FileUploadChat from '../components/ChatBot'
 
 const QR_TYPES = [
-  "Let NexBot walk you through detailed, step-by-step guidance tailored to your situation.",
-  "Device Setup and Installation",
-  "Vital Signs Monitoring",
-  "Accident Detection and Alert System",
-  "Hospital and Specialist Routing",
-  "Data Privacy and Security",
-  "Subscription Plans and Billing",
-  "Troubleshooting and Technical Issues",
-  "Account and Profile Management"
+  "Let Wavepoint Support guide you with clear, step-by-step solutions.",
+  "Projects and Task Management",
+  "Workflows and Team Collaboration",
+  "Workspace and Account Management",
+  "Technical Issues and Troubleshooting",
 ]
 
 const BOT_DESC = [
-  "Meet NexBot, your intelligent support companion.",
-  "Whether you are curious about how the accident detection system works, need help pairing your device, want to understand how your vitals data reaches your assigned doctor, or simply need guidance on your subscription plan, NexBot is equipped to assist you instantly and accurately.",
-  "For complex or unresolved queries, NexBot seamlessly escalates to a live human support agent during business hours so your concern is never left unanswered."
+  "Meet Wavepoint Support, your intelligent support companion.",
+  "Get help with projects, tasks, workflows, workspaces, subscriptions, and technical issues.",
+  "For complex issues, our support team is available during business hours to assist you."
 ]
 
 const FTR_CNT = [
-  "NexBot draws from NexVitals' complete knowledge base to resolve the most common and complex queries within seconds.",
-  "It understands medical terminology, device specifications, and emergency workflows, making it uniquely capable compared to standard support chatbots. Simply type your question in plain language and NexBot will guide you to the right answer or the right person.",
-  "If NexBot is unable to resolve your query, you may request a live agent during business hours (Monday to Saturday, 9 AM – 7 PM IST) or submit a detailed query via our Grievance Page for a formal response within 48 working hours."
+  "Get quick answers about Wavepoint projects, tasks, workflows, and workspaces.",
+  "Describe your issue and get clear, practical guidance.",
+  "Need more help? Contact our support team or submit a support request."
 ]
 
 function Support() {
@@ -77,8 +73,8 @@ function Support() {
       <div className="Query-Heading">
         <TextType
           text={[
-            "- Welcome to NexVitals Query Support ! -",
-            "- Got Questions? Our Smart Assistant Has Real Answers -"
+            "- Welcome to Wavepoint Support ! -",
+            "- Got Questions? Get Smart Answers -"
           ]}
           typingSpeed={70}
           deletingSpeed={45}
@@ -94,7 +90,7 @@ function Support() {
 
       <div className="Query-subheading">
         <BlurText
-          text="Ask Anything About NexVitals — Devices, Emergency Protocols, Vital Monitoring, and Everything in Between"
+          text="Ask Anything About Wavepoint Projects, Tasks, Workflows, Collaboration, and More"
           delay={200}
           animateBy="words"
           direction="bottom"
@@ -109,7 +105,7 @@ function Support() {
             <div className="Query-types-heading">
               <SplitText
                 key="Query-types-heading"
-                text="- Browse by Topic — Find Exactly What You Are Looking for -"
+                text="- Browse by Topic. Find the Right Wavepoint Support You Need -"
                 className="Query-title"
                 delay={45}
                 duration={1.1}
@@ -151,7 +147,7 @@ function Support() {
               <div className="Query-bot_chatpanel-heading">
                 <SplitText
                   key="Query-bot-chatpanel-heading"
-                  text="- NexBot : Instant Answers Powered by NexVitals Intelligence -"
+                  text="- WaveBot : Instant Answers for Smarter Workflows -"
                   className="Query-bot-title"
                   delay={45}
                   duration={1.1}
@@ -203,7 +199,7 @@ function Support() {
               <div className="Query-footer-heading">
                 <SplitText
                   key="Query-footer-heading"
-                  text="- How NexBot Helps You — A Smarter Way to Get Support Without the Wait -"
+                  text="- How WaveBot Helps You : A Smarter Way to Get Answers Without the Wait -"
                   className="Query-footer-title"
                   delay={45}
                   duration={1.1}
@@ -244,7 +240,7 @@ function Support() {
               <div className="Query-footer-note">
                 <SplitText
                   key="Query-footer-note"
-                  text="- Precision in Every Pulse. Speed in Every Response. -"
+                  text="- Smart Support. Clear Answers. Better Workflows. -"
                   className="Query-footer-note-text"
                   delay={12}
                   duration={0.85}

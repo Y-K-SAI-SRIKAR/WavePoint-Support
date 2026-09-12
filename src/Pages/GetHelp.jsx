@@ -9,16 +9,16 @@ import SplitText from '../components/SplitText'
 import { Form } from '../components/SubscriberForm'
 
 const NS_PARAGRAPHS = [
-  "Be the first to know about NexVitals' latest breakthroughs in emergency response technology.",
-  "From firmware upgrades to hospital network expansions and safety compliance updates, our newsletter keeps you informed, prepared, and connected to a smarter ecosystem of care.",
-  "Enter your email above and join thousands who trust NexVitals to keep them in the loop.",
+  "Stay up to date with the latest Wavepoint features, improvements, and product updates.",
+  "From new workflow capabilities to smarter project management tools, our updates keep you informed about what’s new and help your team get more from Wavepoint.",
+  "Enter your email above and stay connected with everything happening across Wavepoint."
 ]
 
 const CONTACT_DETAILS = [
   {
     label: 'Email',
-    value: 'nexvitalssupport@gmail.com',
-    href: 'mailto:nexvitalssupport@gmail.com',
+    value: 'support@wavepoint.com',
+    href: 'mailto:support@wavepoint.com',
     full: false,
   },
   {
@@ -34,180 +34,180 @@ const CONTACT_DETAILS = [
   },
   {
     label: 'Postal Address',
-    value: 'NexVitals PVT LTD, Hyderabad, Telangana – 500050.',
+    value: 'Wavepoint Technologies, Hyderabad, Telangana – 500050.',
     full: true,
   },
 ]
 
-const EMERGENCY_DETAILS = [
+const PRIORITY_SUPPORT_DETAILS = [
   {
-    label: 'Response Line',
-    value: '1800-XXX-0000 (Available 24/7)',
-    href: 'tel:1800-XXX-0000',
+    label: 'Critical Support',
+    value: 'Priority assistance for urgent workspace and project issues',
     full: false,
   },
   {
-    label: 'National Ambulance Service',
-    value: '108',
-    href: 'tel:108',
+    label: 'Account Assistance',
+    value: 'Get help with account access, workspace access, and permissions',
     full: false,
   },
   {
-    label: 'Police',
-    value: '100',
-    href: 'tel:100',
+    label: 'Technical Issues',
+    value: 'Report unexpected errors, workflow issues, or platform problems',
     full: false,
   },
   {
-    label: 'National Disaster HelpLine',
-    value: '1078',
-    href: 'tel:1078',
+    label: 'Service Updates',
+    value: 'Check the latest platform updates and service information',
     full: false,
   },
 ]
 
 const FAQ_CATEGORIES = {
+  PRJCTS: 'PROJECTS',
   WRKFLW: 'WORKFLOW',
-  PRCNG: 'PRICING',
-  ASSTNC: 'ASSISTANCE',
-  TECH: 'TECHNOLOGY',
-  PRVC: 'PRIVACY',
+  TSKMGT: 'TASK MANAGEMENT',
+  ACCTS: 'WORKSPACE',
+  TECH: 'SUPPORT',
 }
 
 const FAQ_DATA = {
+  PRJCTS: [
+    {
+      question: 'How do I create a new project in Wavepoint?',
+      answer:
+        'Open your workspace, select the option to create a new project, and provide the project name and relevant details. Once created, you can add tasks, assign team members, and start tracking progress.',
+    },
+    {
+      question: 'Can I assign team members to a project?',
+      answer:
+        'Yes. Project members can be added from the project settings or team management section. You can assign members to projects and control their access based on the available workspace permissions.',
+    },
+    {
+      question: 'How can I track the progress of a project?',
+      answer:
+        'Wavepoint provides project-level progress visibility through task completion, status updates, deadlines, and workflow information, helping teams understand how work is progressing.',
+    },
+    {
+      question: 'Can I set deadlines for projects?',
+      answer:
+        'Yes. You can define project timelines and deadlines to help your team plan work, prioritize tasks, and keep projects on schedule.',
+    },
+    {
+      question: 'Can multiple team members collaborate on the same project?',
+      answer:
+        'Yes. Wavepoint is designed for collaborative project management, allowing team members to work within shared projects, coordinate tasks, and stay aligned through project updates.',
+    },
+  ],
+
   WRKFLW: [
     {
-      question: 'How does NexVitals detect that an accident has occurred?',
+      question: 'What is a workflow in Wavepoint?',
       answer:
-        'The device uses impact sensors and real-time vital readings to identify a crash. When a severe event is confirmed, it instantly triggers the emergency alert protocol.',
+        'A workflow is a structured sequence of steps used to organize and manage work. Wavepoint helps teams create clear processes so tasks can move efficiently from one stage to another.',
     },
     {
-      question: 'Who gets notified first when an accident is detected?',
+      question: 'Can I customize workflows for my team?',
       answer:
-        'The nearest ambulance team and paramedic unit are notified simultaneously, along with the pre-assigned emergency contact on your profile.',
+        'Yes. Workflows can be organized around the way your team operates, allowing you to structure stages and processes according to different project or business requirements.',
     },
     {
-      question: 'How does NexVitals decide which hospital to send the victim to?',
+      question: 'How do workflow updates help my team?',
       answer:
-        'It checks real-time bed availability, emergency unit readiness, and specialist presence across nearby hospitals and routes the victim to the best available option.',
+        'Workflow updates provide visibility into the current state of work, making it easier for team members to understand what is in progress, what needs attention, and what has been completed.',
     },
     {
-      question: "How does the victim's vitals data reach the doctor?",
+      question: 'Can workflows be used across different projects?',
       answer:
-        'Vitals captured by the device are transmitted instantly to the assigned specialist, so the doctor is already briefed before the patient arrives at the hospital.',
+        'Yes. Teams can use workflow structures across projects where the same process is applicable, helping maintain consistency while managing different types of work.',
     },
     {
-      question: 'What happens if the accident occurs in a low network area?',
+      question: 'What should I do if a workflow is not working as expected?',
       answer:
-        'The device stores the event data locally and transmits it as soon as connectivity is restored. Critical alerts are prioritized over all other data traffic.',
+        'Check the workflow stages, task statuses, and assigned team members first. If the issue continues, submit a support request with details about the workflow and the behavior you are experiencing.',
     },
   ],
-  PRCNG: [
+
+  TSKMGT: [
     {
-      question: 'Is there a one-time device cost or a monthly subscription?',
+      question: 'How do I create a task in Wavepoint?',
       answer:
-        'NexVitals follows a one-time device purchase model combined with an annual subscription for monitoring, alerts, and emergency services.',
+        'Tasks can be created within a project or workflow. Add the task details, assign it to the appropriate team member, and set the relevant status or deadline to begin tracking the work.',
     },
     {
-      question: 'Does the subscription cover ambulance dispatch charges?',
+      question: 'Can I assign tasks to specific team members?',
       answer:
-        'Yes, ambulance coordination is covered under all active subscription plans at no additional cost during an emergency.',
+        'Yes. Tasks can be assigned to individual team members so responsibilities are clear and everyone knows which work requires their attention.',
     },
     {
-      question: 'Are there different pricing plans available?',
+      question: 'Can I set priorities and deadlines for tasks?',
       answer:
-        'Yes, we offer Individual, Family, and Fleet plans. Each plan varies in the number of devices, coverage scope, and support priority level.',
+        'Yes. Task priorities and deadlines can be used to help teams organize their workload, focus on important work, and keep tasks moving toward completion.',
     },
     {
-      question: 'Is there a free trial available before purchasing?',
+      question: 'How can I see which tasks are still pending?',
       answer:
-        'We offer a 30-day trial period for new users. Full emergency features are active during the trial with no commitment required.',
+        'You can review task statuses within your project or workflow to identify pending, active, and completed work and quickly determine what still needs attention.',
     },
     {
-      question: 'What happens if I miss my subscription renewal?',
+      question: 'Can I update a task after assigning it?',
       answer:
-        'You will receive reminders 15 days before expiry. Emergency features remain active for a 7-day grace period after the due date before the plan is paused.',
-    },
-  ],
-  ASSTNC: [
-    {
-      question: 'How do I reach NexVitals support during an emergency?',
-      answer:
-        'Call our 24/7 emergency line at 1800-XXX-0000. For non-emergencies, our support team is available Monday to Saturday, 9 AM – 7 PM IST.',
-    },
-    {
-      question: 'Can I get help with device installation?',
-      answer:
-        'Yes. Our support team provides guided installation assistance over call, and on-site support is available for fleet and enterprise clients.',
-    },
-    {
-      question: 'How long does it take to get a response to a complaint?',
-      answer:
-        'Standard complaints are acknowledged within 24 hours and resolved within 48 business hours. Emergency-related complaints are escalated within 2 hours.',
-    },
-    {
-      question: 'Is support available in regional languages?',
-      answer:
-        'Yes, we currently offer assistance in Hindi, Telugu, Tamil, and Kannada in addition to English. More languages are being added progressively.',
-    },
-    {
-      question: 'What should I do if my device stops working suddenly?',
-      answer:
-        'Contact our technical helpdesk at [nexvitalssupport@gmail.com](mailto:nexvitalssupport@gmail.com) or call our support line. A remote diagnostic session can be scheduled within the hour.',
+        'Yes. Task information can be updated as work progresses, including relevant details, status, assignment, priority, and deadline depending on your permissions.',
     },
   ],
+
+  ACCTS: [
+    {
+      question: 'How do I manage my Wavepoint account?',
+      answer:
+        'Your account settings allow you to manage available profile and account information. Workspace administrators may also manage team members, permissions, and workspace-level settings.',
+    },
+    {
+      question: 'How do I create or join a workspace?',
+      answer:
+        'A workspace can be created according to your Wavepoint account permissions, while joining an existing workspace generally requires an invitation or access provided by a workspace administrator.',
+    },
+    {
+      question: 'Can I manage team member permissions?',
+      answer:
+        'Yes. Workspace administrators can manage access and permissions for team members based on the roles and controls available within the workspace.',
+    },
+    {
+      question: 'What should I do if I cannot access my workspace?',
+      answer:
+        'First, verify that you are signed in to the correct account and that you have been granted access to the workspace. If the problem continues, contact Wavepoint Support for assistance.',
+    },
+    {
+      question: 'How do I get help with my subscription or billing?',
+      answer:
+        'For subscription or billing questions, submit a support request with the relevant account details and a description of the issue. Our support team can review the request and provide the appropriate assistance.',
+    },
+  ],
+
   TECH: [
     {
-      question: 'In which types of vehicles can the NexVitals device be installed?',
+      question: 'What should I do if Wavepoint is not loading correctly?',
       answer:
-        'It is compatible with personal cars, bikes, trucks, buses, and commercial fleets. Installation takes under 30 minutes with standard tools.',
+        'Check your internet connection and try refreshing the page. You can also try signing in again or using an updated browser. If the problem persists, contact technical support with details about the issue.',
     },
     {
-      question: 'Does the device work while the vehicle is parked?',
+      question: 'Why are my project or task updates not appearing?',
       answer:
-        'Yes. The device remains in a low-power monitoring mode when parked and activates fully when motion or a sudden impact is detected.',
+        'Verify that you have an active connection and the appropriate workspace permissions. Refresh the workspace and check whether the update appears. If it still does not appear, submit a support request.',
     },
     {
-      question: 'How often does the device need to be serviced or updated?',
+      question: 'Which browsers can I use with Wavepoint?',
       answer:
-        'Firmware updates are pushed automatically over the air. Physical servicing is recommended once a year or after any emergency event.',
+        'Wavepoint is designed to work with modern web browsers. For the best experience, keep your browser updated to the latest stable version.',
     },
     {
-      question: 'Does the device have a battery backup if the vehicle power cuts off?',
+      question: 'What should I do if I encounter an unexpected error?',
       answer:
-        'Yes. The device has an onboard battery that keeps it operational for up to 6 hours in the event of a complete vehicle power failure.',
+        'Note the action that caused the error, refresh the application, and try the action again. If the issue continues, provide the error message and relevant steps when contacting Wavepoint Support.',
     },
     {
-      question: 'Can the device monitor passengers vitals, or only the driver?',
+      question: 'How can I report a technical problem?',
       answer:
-        'The current model is optimized for the primary occupant. Multi-occupant vital monitoring is in development and expected in the next product generation.',
-    },
-  ],
-  PRVC: [
-    {
-      question: 'Who has access to my health and vitals data?',
-      answer:
-        'Only authorized medical personnel — your assigned specialist and the treating hospital team — can access your vitals, and only during an active emergency.',
-    },
-    {
-      question: 'Is my data stored permanently on NexVitals servers?',
-      answer:
-        'Vitals data is retained for 12 months for medical and legal purposes, after which it is securely deleted unless you request an extension.',
-    },
-    {
-      question: 'Can I opt out of data sharing entirely?',
-      answer:
-        'You can control non-emergency data sharing through your profile settings. Emergency data sharing cannot be disabled as it is essential for the service to function.',
-    },
-    {
-      question: 'Is the NexVitals platform compliant with Indian data protection laws?',
-      answer:
-        'Yes. We are fully compliant with the Digital Personal Data Protection Act, 2023, and follow medical-grade encryption standards for all data transmission.',
-    },
-    {
-      question: 'Can I request a copy of my stored vitals and activity data?',
-      answer:
-        'Yes. You can raise a data access request through your NexVitals account under the Privacy Settings section, and we will share it within 7 working days.',
+        'You can submit a support request through the Wavepoint Support portal. Include a clear description of the problem, the affected project or workspace if applicable, and any error message you received.',
     },
   ],
 }
@@ -258,7 +258,7 @@ function FAQItem({ question, answer }) {
 }
 
 function GetHelp() {
-  const [selectedFaqCategory, setSelectedFaqCategory] = useState('ASSTNC')
+  const [selectedFaqCategory, setSelectedFaqCategory] = useState('PRJCTS')
 
   const handleQuoteComplete = () => {
     console.log('Quote animation completed!')
@@ -287,8 +287,8 @@ function GetHelp() {
       <div className="Assistance-Heading">
         <TextType
           text={[
-            '- Welcome to NexVitals Assistance ! -',
-            "- We're Here When You Need Us Most -",
+            '- Welcome to Wavepoint Support ! -',
+            "- We're Here to Help You Stay on Course -",
           ]}
           typingSpeed={70}
           deletingSpeed={45}
@@ -304,7 +304,7 @@ function GetHelp() {
 
       <div className="Assistance-subheading">
         <BlurText
-          text="Connecting You to Resources, Updates, and the Right People — at the Right Time"
+          text="Connecting You to Support, Guidance, and the Right Solutions, at the Right Time"
           delay={200}
           animateBy="words"
           direction="bottom"
@@ -385,7 +385,7 @@ function GetHelp() {
               <div className="contact-text-wrap">
                 <SplitText
                   key="contact-text"
-                  text="Reach our NexVitals team for support, product guidance, and assistance during working hours."
+                  text="Reach our Wavepoint team for support, product guidance, and assistance during working hours."
                   className="contact-text"
                   delay={14}
                   duration={0.8}
@@ -532,7 +532,7 @@ function GetHelp() {
               <div className="emergency-heading">
                 <SplitText
                   key="emergency-heading"
-                  text="- Emergency Contact Information -"
+                  text="- Priority Support Information -"
                   className="emergency-title"
                   delay={45}
                   duration={1.1}
@@ -550,7 +550,7 @@ function GetHelp() {
                 <div className="emergency-text-wrap">
                   <SplitText
                     key="emergency-text"
-                    text="In a life-threatening situation, every second counts. Reach the right responders instantly."
+                    text="When you need help, our support team is here to guide you quickly and connect you with the right solution."
                     className="emergency-text"
                     delay={14}
                     duration={0.8}
@@ -565,7 +565,7 @@ function GetHelp() {
                 </div>
 
                 <address className="emergency-details">
-                  {EMERGENCY_DETAILS.map((item, index) => (
+                  {PRIORITY_SUPPORT_DETAILS.map((item, index) => (
                     <div
                       className={`emergency-item ${item.full ? 'emergency-item-full' : ''}`}
                       key={item.label}
@@ -632,7 +632,7 @@ function GetHelp() {
               <div className="footer-text-wrap">
                 <SplitText
                   key="footer-note"
-                  text="- Every Second Counts. We Make Sure It Does ! -"
+                  text="- We Make Sure Your Task Moves Forward ! -"
                   className="emergency-title"
                   delay={45}
                   duration={1.1}

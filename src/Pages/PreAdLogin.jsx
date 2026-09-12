@@ -42,7 +42,7 @@ export default function PreAdLogin() {
         <div className="preadlogin-subheading">
           <BlurText
             key="subheading-blur"
-            text="Manage, Monitor, and Move NexVitals Forward — One Update, One Grievance, One Insight at a Time"
+            text="Manage Wavepoint Updates, Requests, and Insights. All in One Place"
             delay={180}
             animateBy="words"
             direction="bottom"

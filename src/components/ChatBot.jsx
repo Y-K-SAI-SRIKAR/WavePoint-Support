@@ -21,7 +21,7 @@ const FileUploadChat = () => {
     {
       id: 1,
       type: "ai",
-      content: "Welcome to NexBot! 👋 How can I assist you today?",
+      content: "Welcome to WaveBot! 👋 How can I assist you today?",
       timestamp: new Date()
     }
   ])
@@ -33,7 +33,6 @@ const FileUploadChat = () => {
   const chatEndRef = useRef(null)
   const textareaRef = useRef(null)
 
-  // Generate UUID for session
   function generateUUID() {
     return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
       const r = (Math.random() * 16) | 0
@@ -42,12 +41,12 @@ const FileUploadChat = () => {
     })
   }
 
-  // Auto-scroll to bottom when new messages arrive
+
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [messages, isTyping])
 
-  // Auto-resize textarea
+
   useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.style.height = "auto"
@@ -110,16 +109,15 @@ const FileUploadChat = () => {
     setUploadedFiles((prev) => prev.filter((file) => file.id !== fileId))
   }
 
-  // ✅ Send message to NexBot backend
+
   const sendMessage = async () => {
     const userMessage = inputValue.trim()
 
-    // Validate input
     if (!userMessage && uploadedFiles.length === 0) {
       return
     }
 
-    // Add user message to chat
+
     const userMsg = {
       id: Date.now(),
       type: "user",
@@ -134,15 +132,15 @@ const FileUploadChat = () => {
     setIsTyping(true)
 
     try {
-      // ✅ Call NexBot backend API
+
       const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/query/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          message: userMessage,  // ✅ camelCase
-          sessionId: sessionId    // ✅ camelCase
+          message: userMessage, 
+          sessionId: sessionId   
         })
       })
 
@@ -150,7 +148,6 @@ const FileUploadChat = () => {
 
       setIsTyping(false)
 
-      // ✅ Extract reply from response structure
       let botReply = "Sorry, I didn't get a proper response. Please try again."
 
       if (result.success && result.data) {
@@ -159,7 +156,6 @@ const FileUploadChat = () => {
         botReply = result.message
       }
 
-      // Add bot response to chat
       const botMsg = {
         id: Date.now() + 1,
         type: "ai",
@@ -186,13 +182,12 @@ const FileUploadChat = () => {
   const handleKeyPress = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault()
-      sendMessage()  // ✅ Call sendMessage properly
+      sendMessage()  
     }
   }
 
   return (
     <div className={`ChatBot${isDarkMode ? "" : " ChatBot-light"}`}>
-      {/* Hidden native file input */}
       <input
         type="file"
         ref={fileInputRef}
@@ -202,7 +197,6 @@ const FileUploadChat = () => {
       />
 
       <div className="ChatBot-shell">
-        {/* ── Files-ready panel (only when files are queued) ── */}
         {uploadedFiles.length > 0 && (
           <div className="ChatBot-files-panel">
             <div className="ChatBot-files-header">
@@ -242,13 +236,12 @@ const FileUploadChat = () => {
           </div>
         )}
 
-        {/* ── Main chat card ── */}
         <div
           className="ChatBot-main"
           onDrop={handleDrop}
           onDragOver={handleDragOver}
         >
-          {/* Header */}
+
           <div className="ChatBot-header">
             <div className="ChatBot-header-left">
               <span className="ChatBot-status-dot" />
@@ -256,7 +249,7 @@ const FileUploadChat = () => {
               <span className="ChatBot-header-status">Online</span>
             </div>
 
-            {/* Theme toggle */}
+
             <button
               className="ChatBot-toggle"
               onClick={() => setIsDarkMode((prev) => !prev)}
@@ -266,21 +259,21 @@ const FileUploadChat = () => {
             </button>
           </div>
 
-          {/* Messages */}
+
           <div className="ChatBot-messages">
             {messages.map((message) => (
               <div
                 key={message.id}
                 className={`ChatBot-row ${message.type}`}
               >
-                {/* AI avatar (left side) */}
+
                 {message.type === "ai" && (
                   <div className="ChatBot-avatar">
                     <Bot size={18} />
                   </div>
                 )}
 
-                {/* Bubble */}
+
                 <div className={`ChatBot-bubble ${message.type}`}>
                   {message.content && (
                     <p className="ChatBot-message-text">{message.content}</p>
@@ -310,7 +303,7 @@ const FileUploadChat = () => {
                   </span>
                 </div>
 
-                {/* User avatar (right side) */}
+
                 {message.type === "user" && (
                   <div className="ChatBot-avatar user">
                     <User size={18} />
@@ -319,7 +312,7 @@ const FileUploadChat = () => {
               </div>
             ))}
 
-            {/* Typing indicator */}
+
             {isTyping && (
               <div className="ChatBot-row ai">
                 <div className="ChatBot-avatar">
@@ -338,10 +331,9 @@ const FileUploadChat = () => {
             <div ref={chatEndRef} />
           </div>
 
-          {/* Input area */}
           <div className="ChatBot-input-area">
             <div className="ChatBot-input-row">
-              {/* Paperclip / attach button */}
+
               <button
                 className="ChatBot-icon-btn"
                 onClick={() => fileInputRef.current?.click()}
@@ -350,7 +342,6 @@ const FileUploadChat = () => {
                 <Paperclip size={20} />
               </button>
 
-              {/* Textarea wrapper */}
               <div className="ChatBot-input-wrap">
                 <textarea
                   ref={textareaRef}
@@ -366,7 +357,6 @@ const FileUploadChat = () => {
                 )}
               </div>
 
-              {/* Send button */}
               <button
                 className="ChatBot-send-btn"
                 onClick={sendMessage}

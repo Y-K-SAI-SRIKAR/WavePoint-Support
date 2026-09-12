@@ -8,34 +8,46 @@ import { Form } from '../components/UpdateForm';
 
 const CATEGORY_OPTIONS = [
   { value: 'product-updates', label: 'Product Updates' },
-  { value: 'workflow-announcements', label: 'Workflow Announcements' },
+  { value: 'workflow-updates', label: 'Workflow Updates' },
   { value: 'maintenance-notices', label: 'Maintenance Notices' },
-  { value: 'partnership-network-expansion', label: 'Partnership and Network Expansion Updates' },
-  { value: 'policy-compliance', label: 'Policy and Compliance Updates' },
-  { value: 'internal-team-announcements', label: 'Internal Team Announcements' },
+  { value: 'feature-releases', label: 'Feature Releases' },
+  { value: 'policy-updates', label: 'Policy Updates' },
+  { value: 'team-announcements', label: 'Team Announcements' },
 ];
 
 const initialFormState = {
   category: 'product-updates',
+
+  // Product Updates
   updateTitle: '',
   dateOfRelease: '',
   versionNumber: '',
   whatChanged: '',
   whoItAffects: '',
-  protocolUpdate: '',
+
+  // Workflow Updates
+  workflowUpdate: '',
   effectiveFrom: '',
   updateDescription: '',
-  implementingDateExpected: '',
+  implementationDate: '',
+
+  // Maintenance Notices
   noticeTitle: '',
   startDateTime: '',
   endDateTime: '',
   details: '',
-  partnerTitle: '',
-  partnerEffectiveFrom: '',
-  partnerDescription: '',
+
+  // Feature Releases
+  featureTitle: '',
+  featureReleaseDate: '',
+  featureDescription: '',
+
+  // Policy Updates
   policyTitle: '',
   policyEffectiveDate: '',
   policyDescription: '',
+
+  // Team Announcements
   teamDate: '',
   achievementTitle: '',
   teamDescription: '',
@@ -121,44 +133,49 @@ function Admin() {
   };
 
   const requiredFieldsByCategory = useMemo(
-    () => ({
-      'product-updates': [
-        'updateTitle',
-        'dateOfRelease',
-        'versionNumber',
-        'whatChanged',
-        'whoItAffects',
-      ],
-      'workflow-announcements': [
-        'protocolUpdate',
-        'effectiveFrom',
-        'updateDescription',
-        'implementingDateExpected',
-      ],
-      'maintenance-notices': [
-        'noticeTitle',
-        'startDateTime',
-        'endDateTime',
-        'details',
-      ],
-      'partnership-network-expansion': [
-        'partnerTitle',
-        'partnerEffectiveFrom',
-        'partnerDescription',
-      ],
-      'policy-compliance': [
-        'policyTitle',
-        'policyEffectiveDate',
-        'policyDescription',
-      ],
-      'internal-team-announcements': [
-        'teamDate',
-        'achievementTitle',
-        'teamDescription',
-      ],
-    }),
-    []
-  );
+  () => ({
+    'product-updates': [
+      'updateTitle',
+      'dateOfRelease',
+      'versionNumber',
+      'whatChanged',
+      'whoItAffects',
+    ],
+
+    'workflow-updates': [
+      'workflowUpdate',
+      'effectiveFrom',
+      'updateDescription',
+      'implementationDate',
+    ],
+
+    'maintenance-notices': [
+      'noticeTitle',
+      'startDateTime',
+      'endDateTime',
+      'details',
+    ],
+
+    'feature-releases': [
+      'featureTitle',
+      'featureReleaseDate',
+      'featureDescription',
+    ],
+
+    'policy-updates': [
+      'policyTitle',
+      'policyEffectiveDate',
+      'policyDescription',
+    ],
+
+    'team-announcements': [
+      'teamDate',
+      'achievementTitle',
+      'teamDescription',
+    ],
+  }),
+  []
+);
 
   const isFieldFilled = (value) => String(value).trim() !== '';
 
@@ -190,349 +207,416 @@ function Admin() {
   }, [adminFormData]);
 
   const buildUpdatePayload = () => {
-    switch (formData.category) {
-      case 'product-updates':
-        return {
-          category: formData.category,
-          updateTitle: formData.updateTitle.trim(),
-          dateOfRelease: formData.dateOfRelease,
-          versionNumber: formData.versionNumber.trim(),
-          whatChanged: formData.whatChanged.trim(),
-          whoItAffects: formData.whoItAffects.trim(),
-        };
+  switch (formData.category) {
+    case 'product-updates':
+      return {
+        category: formData.category,
+        updateTitle: formData.updateTitle.trim(),
+        dateOfRelease: formData.dateOfRelease,
+        versionNumber: formData.versionNumber.trim(),
+        whatChanged: formData.whatChanged.trim(),
+        whoItAffects: formData.whoItAffects.trim(),
+      };
 
-      case 'workflow-announcements':
-        return {
-          category: formData.category,
-          protocolUpdate: formData.protocolUpdate.trim(),
-          effectiveFrom: formData.effectiveFrom,
-          updateDescription: formData.updateDescription.trim(),
-          implementingDateExpected: formData.implementingDateExpected,
-        };
+    case 'workflow-updates':
+      return {
+        category: formData.category,
+        workflowUpdate: formData.workflowUpdate.trim(),
+        effectiveFrom: formData.effectiveFrom,
+        updateDescription: formData.updateDescription.trim(),
+        implementationDate: formData.implementationDate,
+      };
 
-      case 'maintenance-notices':
-        return {
-          category: formData.category,
-          noticeTitle: formData.noticeTitle.trim(),
-          startDateTime: formData.startDateTime,
-          endDateTime: formData.endDateTime,
-          details: formData.details.trim(),
-        };
+    case 'maintenance-notices':
+      return {
+        category: formData.category,
+        noticeTitle: formData.noticeTitle.trim(),
+        startDateTime: formData.startDateTime,
+        endDateTime: formData.endDateTime,
+        details: formData.details.trim(),
+      };
 
-      case 'partnership-network-expansion':
-        return {
-          category: formData.category,
-          partnerTitle: formData.partnerTitle.trim(),
-          partnerEffectiveFrom: formData.partnerEffectiveFrom,
-          partnerDescription: formData.partnerDescription.trim(),
-        };
+    case 'feature-releases':
+      return {
+        category: formData.category,
+        featureTitle: formData.featureTitle.trim(),
+        featureReleaseDate: formData.featureReleaseDate,
+        featureDescription: formData.featureDescription.trim(),
+      };
 
-      case 'policy-compliance':
-        return {
-          category: formData.category,
-          policyTitle: formData.policyTitle.trim(),
-          policyEffectiveDate: formData.policyEffectiveDate,
-          policyDescription: formData.policyDescription.trim(),
-        };
+    case 'policy-updates':
+      return {
+        category: formData.category,
+        policyTitle: formData.policyTitle.trim(),
+        policyEffectiveDate: formData.policyEffectiveDate,
+        policyDescription: formData.policyDescription.trim(),
+      };
 
-      case 'internal-team-announcements':
-        return {
-          category: formData.category,
-          teamDate: formData.teamDate,
-          achievementTitle: formData.achievementTitle.trim(),
-          teamDescription: formData.teamDescription.trim(),
-        };
+    case 'team-announcements':
+      return {
+        category: formData.category,
+        teamDate: formData.teamDate,
+        achievementTitle: formData.achievementTitle.trim(),
+        teamDescription: formData.teamDescription.trim(),
+      };
 
-      default:
-        return { ...formData };
-    }
-  };
+    default:
+      return { ...formData };
+  }
+};
 
   const visibleFields = useMemo(() => {
-    switch (formData.category) {
-      case 'product-updates':
-        return (
-          <Fragment>
-            <FieldHeading text="Update Title" onComplete={() => handleFieldHeadingComplete('Update Title')} />
-            <input
-              type="text"
-              name="updateTitle"
-              value={formData.updateTitle}
-              onChange={handleChange}
-              className="admin-form-input"
-              placeholder="Enter update title"
-              required
-            />
+  switch (formData.category) {
+    case 'product-updates':
+      return (
+        <Fragment>
+          <FieldHeading
+            text="Update Title"
+            onComplete={() => handleFieldHeadingComplete('Update Title')}
+          />
+          <input
+            type="text"
+            name="updateTitle"
+            value={formData.updateTitle}
+            onChange={handleChange}
+            className="admin-form-input"
+            placeholder="Enter update title"
+            required
+          />
 
-            <FieldHeading text="Date of Release" onComplete={() => handleFieldHeadingComplete('Date of Release')} />
-            <input
-              type="date"
-              name="dateOfRelease"
-              value={formData.dateOfRelease}
-              onChange={handleChange}
-              className="admin-form-input"
-              required
-            />
+          <FieldHeading
+            text="Date of Release"
+            onComplete={() => handleFieldHeadingComplete('Date of Release')}
+          />
+          <input
+            type="date"
+            name="dateOfRelease"
+            value={formData.dateOfRelease}
+            onChange={handleChange}
+            className="admin-form-input"
+            required
+          />
 
-            <FieldHeading text="Version Number" onComplete={() => handleFieldHeadingComplete('Version Number')} />
-            <input
-              type="text"
-              name="versionNumber"
-              value={formData.versionNumber}
-              onChange={handleChange}
-              className="admin-form-input"
-              placeholder="e.g. v2.1.0"
-              required
-            />
+          <FieldHeading
+            text="Version Number"
+            onComplete={() => handleFieldHeadingComplete('Version Number')}
+          />
+          <input
+            type="text"
+            name="versionNumber"
+            value={formData.versionNumber}
+            onChange={handleChange}
+            className="admin-form-input"
+            placeholder="e.g. v2.1.0"
+            required
+          />
 
-            <FieldHeading text="What Changed" onComplete={() => handleFieldHeadingComplete('What Changed')} />
-            <textarea
-              name="whatChanged"
-              value={formData.whatChanged}
-              onChange={handleChange}
-              className="admin-form-textarea"
-              placeholder="Describe the updates made"
-              rows="4"
-              required
-            />
+          <FieldHeading
+            text="What Changed"
+            onComplete={() => handleFieldHeadingComplete('What Changed')}
+          />
+          <textarea
+            name="whatChanged"
+            value={formData.whatChanged}
+            onChange={handleChange}
+            className="admin-form-textarea"
+            placeholder="Describe the updates made"
+            rows="4"
+            required
+          />
 
-            <FieldHeading text="Who It Affects" onComplete={() => handleFieldHeadingComplete('Who It Affects')} />
-            <textarea
-              name="whoItAffects"
-              value={formData.whoItAffects}
-              onChange={handleChange}
-              className="admin-form-textarea"
-              placeholder="Mention the impacted users or teams"
-              rows="3"
-              required
-            />
-          </Fragment>
-        );
+          <FieldHeading
+            text="Who It Affects"
+            onComplete={() => handleFieldHeadingComplete('Who It Affects')}
+          />
+          <textarea
+            name="whoItAffects"
+            value={formData.whoItAffects}
+            onChange={handleChange}
+            className="admin-form-textarea"
+            placeholder="Mention the impacted users or teams"
+            rows="3"
+            required
+          />
+        </Fragment>
+      );
 
-      case 'workflow-announcements':
-        return (
-          <Fragment>
-            <FieldHeading text="Protocol Update" onComplete={() => handleFieldHeadingComplete('Protocol Update')} />
-            <input
-              type="text"
-              name="protocolUpdate"
-              value={formData.protocolUpdate}
-              onChange={handleChange}
-              className="admin-form-input"
-              placeholder="Enter protocol update"
-              required
-            />
+    case 'workflow-updates':
+      return (
+        <Fragment>
+          <FieldHeading
+            text="Workflow Update"
+            onComplete={() => handleFieldHeadingComplete('Workflow Update')}
+          />
+          <input
+            type="text"
+            name="workflowUpdate"
+            value={formData.workflowUpdate}
+            onChange={handleChange}
+            className="admin-form-input"
+            placeholder="Enter workflow update"
+            required
+          />
 
-            <FieldHeading text="Effective From" onComplete={() => handleFieldHeadingComplete('Effective From')} />
-            <input
-              type="date"
-              name="effectiveFrom"
-              value={formData.effectiveFrom}
-              onChange={handleChange}
-              className="admin-form-input"
-              required
-            />
+          <FieldHeading
+            text="Effective From"
+            onComplete={() => handleFieldHeadingComplete('Effective From')}
+          />
+          <input
+            type="date"
+            name="effectiveFrom"
+            value={formData.effectiveFrom}
+            onChange={handleChange}
+            className="admin-form-input"
+            required
+          />
 
-            <FieldHeading text="Update Description" onComplete={() => handleFieldHeadingComplete('Update Description')} />
-            <textarea
-              name="updateDescription"
-              value={formData.updateDescription}
-              onChange={handleChange}
-              className="admin-form-textarea"
-              placeholder="Describe the workflow announcement"
-              rows="4"
-              required
-            />
+          <FieldHeading
+            text="Update Description"
+            onComplete={() => handleFieldHeadingComplete('Update Description')}
+          />
+          <textarea
+            name="updateDescription"
+            value={formData.updateDescription}
+            onChange={handleChange}
+            className="admin-form-textarea"
+            placeholder="Describe the workflow update"
+            rows="4"
+            required
+          />
 
-            <FieldHeading
-              text="Implementing Date Expected"
-              onComplete={() => handleFieldHeadingComplete('Implementing Date Expected')}
-            />
-            <input
-              type="date"
-              name="implementingDateExpected"
-              value={formData.implementingDateExpected}
-              onChange={handleChange}
-              className="admin-form-input"
-              required
-            />
-          </Fragment>
-        );
+          <FieldHeading
+            text="Implementation Date"
+            onComplete={() => handleFieldHeadingComplete('Implementation Date')}
+          />
+          <input
+            type="date"
+            name="implementationDate"
+            value={formData.implementationDate}
+            onChange={handleChange}
+            className="admin-form-input"
+            required
+          />
+        </Fragment>
+      );
 
-      case 'maintenance-notices':
-        return (
-          <Fragment>
-            <FieldHeading text="Notice Title" onComplete={() => handleFieldHeadingComplete('Notice Title')} />
-            <input
-              type="text"
-              name="noticeTitle"
-              value={formData.noticeTitle}
-              onChange={handleChange}
-              className="admin-form-input"
-              placeholder="Enter maintenance notice title"
-              required
-            />
+    case 'maintenance-notices':
+      return (
+        <Fragment>
+          <FieldHeading
+            text="Notice Title"
+            onComplete={() => handleFieldHeadingComplete('Notice Title')}
+          />
+          <input
+            type="text"
+            name="noticeTitle"
+            value={formData.noticeTitle}
+            onChange={handleChange}
+            className="admin-form-input"
+            placeholder="Enter maintenance notice title"
+            required
+          />
 
-            <FieldHeading
-              text="Starting Date and Time"
-              onComplete={() => handleFieldHeadingComplete('Starting Date and Time')}
-            />
-            <input
-              type="datetime-local"
-              name="startDateTime"
-              value={formData.startDateTime}
-              onChange={handleChange}
-              className="admin-form-input"
-              required
-            />
+          <FieldHeading
+            text="Starting Date and Time"
+            onComplete={() =>
+              handleFieldHeadingComplete('Starting Date and Time')
+            }
+          />
+          <input
+            type="datetime-local"
+            name="startDateTime"
+            value={formData.startDateTime}
+            onChange={handleChange}
+            className="admin-form-input"
+            required
+          />
 
-            <FieldHeading
-              text="Ending Date and Time"
-              onComplete={() => handleFieldHeadingComplete('Ending Date and Time')}
-            />
-            <input
-              type="datetime-local"
-              name="endDateTime"
-              value={formData.endDateTime}
-              onChange={handleChange}
-              className="admin-form-input"
-              required
-            />
+          <FieldHeading
+            text="Ending Date and Time"
+            onComplete={() =>
+              handleFieldHeadingComplete('Ending Date and Time')
+            }
+          />
+          <input
+            type="datetime-local"
+            name="endDateTime"
+            value={formData.endDateTime}
+            onChange={handleChange}
+            className="admin-form-input"
+            required
+          />
 
-            <FieldHeading text="Details" onComplete={() => handleFieldHeadingComplete('Details')} />
-            <textarea
-              name="details"
-              value={formData.details}
-              onChange={handleChange}
-              className="admin-form-textarea"
-              placeholder="Provide maintenance details"
-              rows="4"
-              required
-            />
-          </Fragment>
-        );
+          <FieldHeading
+            text="Details"
+            onComplete={() => handleFieldHeadingComplete('Details')}
+          />
+          <textarea
+            name="details"
+            value={formData.details}
+            onChange={handleChange}
+            className="admin-form-textarea"
+            placeholder="Provide maintenance details"
+            rows="4"
+            required
+          />
+        </Fragment>
+      );
 
-      case 'partnership-network-expansion':
-        return (
-          <Fragment>
-            <FieldHeading
-              text="Partnering Company / Organization Title"
-              onComplete={() => handleFieldHeadingComplete('Partnering Company / Organization Title')}
-            />
-            <input
-              type="text"
-              name="partnerTitle"
-              value={formData.partnerTitle}
-              onChange={handleChange}
-              className="admin-form-input"
-              placeholder="Enter partner organization name"
-              required
-            />
+    case 'feature-releases':
+      return (
+        <Fragment>
+          <FieldHeading
+            text="Feature Title"
+            onComplete={() => handleFieldHeadingComplete('Feature Title')}
+          />
+          <input
+            type="text"
+            name="featureTitle"
+            value={formData.featureTitle}
+            onChange={handleChange}
+            className="admin-form-input"
+            placeholder="Enter feature title"
+            required
+          />
 
-            <FieldHeading text="Effective From" onComplete={() => handleFieldHeadingComplete('Partner Effective From')} />
-            <input
-              type="date"
-              name="partnerEffectiveFrom"
-              value={formData.partnerEffectiveFrom}
-              onChange={handleChange}
-              className="admin-form-input"
-              required
-            />
+          <FieldHeading
+            text="Release Date"
+            onComplete={() => handleFieldHeadingComplete('Release Date')}
+          />
+          <input
+            type="date"
+            name="featureReleaseDate"
+            value={formData.featureReleaseDate}
+            onChange={handleChange}
+            className="admin-form-input"
+            required
+          />
 
-            <FieldHeading text="Description" onComplete={() => handleFieldHeadingComplete('Partner Description')} />
-            <textarea
-              name="partnerDescription"
-              value={formData.partnerDescription}
-              onChange={handleChange}
-              className="admin-form-textarea"
-              placeholder="Describe the partnership or expansion update"
-              rows="4"
-              required
-            />
-          </Fragment>
-        );
+          <FieldHeading
+            text="Feature Description"
+            onComplete={() =>
+              handleFieldHeadingComplete('Feature Description')
+            }
+          />
+          <textarea
+            name="featureDescription"
+            value={formData.featureDescription}
+            onChange={handleChange}
+            className="admin-form-textarea"
+            placeholder="Describe the new feature"
+            rows="4"
+            required
+          />
+        </Fragment>
+      );
 
-      case 'policy-compliance':
-        return (
-          <Fragment>
-            <FieldHeading
-              text="Policy Update Title"
-              onComplete={() => handleFieldHeadingComplete('Policy Update Title')}
-            />
-            <input
-              type="text"
-              name="policyTitle"
-              value={formData.policyTitle}
-              onChange={handleChange}
-              className="admin-form-input"
-              placeholder="Enter policy title"
-              required
-            />
+    case 'policy-updates':
+      return (
+        <Fragment>
+          <FieldHeading
+            text="Policy Update Title"
+            onComplete={() =>
+              handleFieldHeadingComplete('Policy Update Title')
+            }
+          />
+          <input
+            type="text"
+            name="policyTitle"
+            value={formData.policyTitle}
+            onChange={handleChange}
+            className="admin-form-input"
+            placeholder="Enter policy title"
+            required
+          />
 
-            <FieldHeading text="Effective Date" onComplete={() => handleFieldHeadingComplete('Policy Effective Date')} />
-            <input
-              type="date"
-              name="policyEffectiveDate"
-              value={formData.policyEffectiveDate}
-              onChange={handleChange}
-              className="admin-form-input"
-              required
-            />
+          <FieldHeading
+            text="Effective Date"
+            onComplete={() =>
+              handleFieldHeadingComplete('Policy Effective Date')
+            }
+          />
+          <input
+            type="date"
+            name="policyEffectiveDate"
+            value={formData.policyEffectiveDate}
+            onChange={handleChange}
+            className="admin-form-input"
+            required
+          />
 
-            <FieldHeading text="Description" onComplete={() => handleFieldHeadingComplete('Policy Description')} />
-            <textarea
-              name="policyDescription"
-              value={formData.policyDescription}
-              onChange={handleChange}
-              className="admin-form-textarea"
-              placeholder="Describe the policy or compliance update"
-              rows="4"
-              required
-            />
-          </Fragment>
-        );
+          <FieldHeading
+            text="Description"
+            onComplete={() =>
+              handleFieldHeadingComplete('Policy Description')
+            }
+          />
+          <textarea
+            name="policyDescription"
+            value={formData.policyDescription}
+            onChange={handleChange}
+            className="admin-form-textarea"
+            placeholder="Describe the policy update"
+            rows="4"
+            required
+          />
+        </Fragment>
+      );
 
-      case 'internal-team-announcements':
-        return (
-          <Fragment>
-            <FieldHeading text="Date" onComplete={() => handleFieldHeadingComplete('Team Date')} />
-            <input
-              type="date"
-              name="teamDate"
-              value={formData.teamDate}
-              onChange={handleChange}
-              className="admin-form-input"
-              required
-            />
+    case 'team-announcements':
+      return (
+        <Fragment>
+          <FieldHeading
+            text="Date"
+            onComplete={() => handleFieldHeadingComplete('Team Date')}
+          />
+          <input
+            type="date"
+            name="teamDate"
+            value={formData.teamDate}
+            onChange={handleChange}
+            className="admin-form-input"
+            required
+          />
 
-            <FieldHeading text="Achievement Title" onComplete={() => handleFieldHeadingComplete('Achievement Title')} />
-            <input
-              type="text"
-              name="achievementTitle"
-              value={formData.achievementTitle}
-              onChange={handleChange}
-              className="admin-form-input"
-              placeholder="Enter achievement title"
-              required
-            />
+          <FieldHeading
+            text="Announcement Title"
+            onComplete={() =>
+              handleFieldHeadingComplete('Announcement Title')
+            }
+          />
+          <input
+            type="text"
+            name="achievementTitle"
+            value={formData.achievementTitle}
+            onChange={handleChange}
+            className="admin-form-input"
+            placeholder="Enter announcement title"
+            required
+          />
 
-            <FieldHeading text="Description" onComplete={() => handleFieldHeadingComplete('Team Description')} />
-            <textarea
-              name="teamDescription"
-              value={formData.teamDescription}
-              onChange={handleChange}
-              className="admin-form-textarea"
-              placeholder="Describe the internal announcement"
-              rows="4"
-              required
-            />
-          </Fragment>
-        );
+          <FieldHeading
+            text="Description"
+            onComplete={() =>
+              handleFieldHeadingComplete('Team Description')
+            }
+          />
+          <textarea
+            name="teamDescription"
+            value={formData.teamDescription}
+            onChange={handleChange}
+            className="admin-form-textarea"
+            placeholder="Describe the team announcement"
+            rows="4"
+            required
+          />
+        </Fragment>
+      );
 
-      default:
-        return null;
-    }
-  }, [formData]);
+    default:
+      return null;
+  }
+}, [formData]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -689,7 +773,7 @@ function Admin() {
           <div className="admin-headings">
             <div className="admin-content-heading">
               <TextType
-                text={['Welcome to NexVitals Command Centre !']}
+                text={['Welcome to Wavepoint Command Centre !']}
                 typingSpeed={70}
                 deletingSpeed={45}
                 pauseDuration={1200}
@@ -861,12 +945,12 @@ function Admin() {
 
             <div className="admin-content-footer">
               <div className="admin-footer-cp">
-                <p className="admin-footer-text">NexVitals &copy; 2026. All rights reserved.</p>
+                <p className="admin-footer-text">WavePoint &copy; 2026. All rights reserved.</p>
               </div>
               <div className="admin-footer-end">
                 <SplitText
                   key="admin-footer-end"
-                  text="Every Update We Post Is a Step Closer to a World Where No Emergency Goes Unanswered"
+                  text="Every Update Helps Your Team Work Smarter and Stay on Course"
                   className="admin-footer-end-text"
                   delay={45}
                   duration={1.1}

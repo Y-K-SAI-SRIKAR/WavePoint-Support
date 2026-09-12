@@ -9,43 +9,44 @@ import { Form as FormPrimitive } from '@base-ui/react/form'
 import Carousel from '../components/Carousel'
 
 const RV_TYPES = [
-  'We ask you to rate NexVitals across the following dimensions so we can understand exactly where we are excelling and where we need to do better:',
+  'Rate your Wavepoint experience and help us understand what we can improve.',
   'Overall Experience',
-  'Emergency Response Speed and Accuracy',
-  'Hospital and Specialist Routing Quality',
+  'Project and Task Management',
+  'Workflow and Collaboration',
   'Customer Support Quality',
 ]
 
 const RV_END = [
-  'Your review does more than rate a product, it helps families across India make informed decisions about vehicle safety, informs our healthcare and ambulance partners about service quality, and gives our engineering team the direction they need to keep improving.',
-  'Whether you experienced NexVitals during a real emergency or simply want to share your daily experience with the device and app, your words carry real weight here.',
+  'Your feedback helps us improve Wavepoint and create a better experience for teams.',
+  'Whether you are sharing your daily experience or suggesting an improvement, every review helps us build better.'
 ]
 
 const ASPECT_OPTIONS = [
-  { value: 'Technology', label: 'Technology' },
-  { value: 'Customer Service', label: 'Customer Service' },
-  { value: 'Pricing', label: 'Pricing' },
+  { value: 'Projects & Tasks', label: 'Projects & Tasks' },
+  { value: 'Collaboration', label: 'Collaboration' },
+  { value: 'Customer Support', label: 'Customer Support' },
+  { value: 'Pricing & Billing', label: 'Pricing & Billing' },
 ]
 
 const RV_FTR_NT = [
-  'This section features verified reviews from NexVitals users across India — from metro commuters to long-distance truck drivers, from fleet managers to caregivers of elderly passengers.',
-  'These are not curated success stories. They are honest, first-hand accounts of how our technology performed when it mattered most.',
-  'Reading them will give you a realistic picture of what NexVitals delivers and what we are still working to perfect.',
+  'Read reviews from Wavepoint users sharing their real experiences with the platform.',
+  'These honest experiences highlight what works well and where Wavepoint can improve.',
+  'They provide a realistic view of the platform and help us build a better product.',
 ]
 
 const RVEC_GUD = [
-  'To ensure every review on this page is genuine and helpful to the community, please keep the following in mind:',
-  'Reviews must be based on actual personal experience with NexVitals products or services.',
-  'Avoid sharing personally identifiable information in your review text.',
-  'Only users with a verified NexVitals device registration are eligible to post.',
-  'Reviews found to be fraudulent or in violation of our community guidelines will be removed.',
+  'To keep reviews genuine and helpful, please follow these guidelines:',
+  'Reviews should be based on your actual experience with Wavepoint.',
+  'Do not share personal or sensitive information in your review.',
+  'Keep your feedback respectful, relevant, and constructive.',
+  'Fraudulent or inappropriate reviews may be removed.',
 ]
 
 function FeedBack() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    deviceId: '',
+    clientID: '',
     reviewerCategory: '',
     aspectOfReview: '',
     reviewText: '',
@@ -154,7 +155,7 @@ function FeedBack() {
   const handleChange = (e) => {
     const { name, value } = e.target
 
-    if (name === 'deviceId') {
+    if (name === 'clientId') {
       setFormData((prev) => ({
         ...prev,
         [name]: value.slice(0, 10),
@@ -183,7 +184,7 @@ function FeedBack() {
       body: JSON.stringify({
         Name: data.name,
         EmailId: data.email,
-        NexVitalsDeviceId: data.deviceId,
+        WavePointClientID: data.clientId,
         ReviewerCatagory: data.reviewerCategory,
         AspectOfReview: data.aspectOfReview,
         ReviewText: data.reviewText,
@@ -216,25 +217,24 @@ function FeedBack() {
     if (
       !formData.name.trim() ||
       !formData.email.trim() ||
-      !formData.deviceId.trim() ||
+      !formData.clientId.trim() ||
       !formData.reviewerCategory.trim() ||
       !formData.aspectOfReview.trim() ||
       !formData.reviewText.trim()
     ) {
       setStatus({
         type: 'error',
-        message: 'Unable to post review. Please complete all required fields.',
+        message: 'Unable to post review. Please fill in all required fields.',
       })
       return
     }
 
-    const deviceIdPattern = /^(?=.*\d)(?=.*[^A-Za-z0-9]).{10}$/
+    const clientIdPattern = /^(?=.*\d)(?=.*[^A-Za-z0-9]).{10}$/
 
-    if (!deviceIdPattern.test(formData.deviceId)) {
+    if (!clientIdPattern.test(formData.clientId)) {
       setStatus({
         type: 'error',
-        message:
-          'Unable to post review. NexVitals Device ID must be exactly 10 characters and include at least one number and one symbol.',
+        message:'Unable to post review. Client ID must be exactly 10 alphanumeric characters.',
       })
       return
     }
@@ -256,7 +256,7 @@ function FeedBack() {
       setFormData({
         name: '',
         email: '',
-        deviceId: '',
+        clientId: '',
         reviewerCategory: '',
         aspectOfReview: '',
         reviewText: '',
@@ -288,8 +288,8 @@ function FeedBack() {
       <div className="Review-Heading">
         <TextType
           text={[
-            '- Welcome to NexVitals Review Page ! -',
-            '- Your Experience Shapes Our Story -',
+            '- Welcome to Wavepoint Reviews ! -',
+            '- Your Experience Helps Us Improve -',
           ]}
           typingSpeed={70}
           deletingSpeed={45}
@@ -305,7 +305,7 @@ function FeedBack() {
 
       <div className="Review-subheading">
         <BlurText
-          text="Honest Feedback from Real Users Helps Families Choose Smarter Protection and Pushes Us to Raise the Standard of Emergency Care"
+          text="- Honest Feedback from Real Users Helps Us Make Wavepoint Better -"
           delay={200}
           animateBy="words"
           direction="bottom"
@@ -320,7 +320,7 @@ function FeedBack() {
             <div className="Review-types-heading">
               <SplitText
                 key="Review-types-heading"
-                text="- Rate and Review NexVitals -"
+                text="- Rate and Review Wavepoint -"
                 className="Review-title"
                 delay={45}
                 duration={1.1}
@@ -419,19 +419,19 @@ function FeedBack() {
 
                 <div className="Review-field">
                   <label htmlFor="reviewer-device-id" className="Review-label">
-                    NexVitals Device ID
+                    Client ID
                   </label>
                   <input
                     id="reviewer-device-id"
-                    name="deviceId"
+                    name="clientId"
                     type="text"
                     className="Review-input"
                     placeholder="Enter 10-character device ID"
-                    value={formData.deviceId}
+                    value={formData.clientId}
                     onChange={handleChange}
                     maxLength={10}
                     pattern="^(?=.*\d)[A-Za-z\d]{10}$"
-                    title="Device ID must be exactly 10 characters and include at least one number"
+                    title="client ID must be exactly 10 characters and include at least one number"
                     required
                   />
                 </div>
@@ -455,11 +455,11 @@ function FeedBack() {
                       <input
                         type="radio"
                         name="reviewerCategory"
-                        value="NexVitals Insider"
-                        checked={formData.reviewerCategory === 'NexVitals Insider'}
+                        value="Wavepoint Insider"
+                        checked={formData.reviewerCategory === 'WavePoint Insider'}
                         onChange={handleChange}
                       />
-                      <span>NexVitals Insider</span>
+                      <span>WavePoint Insider</span>
                     </label>
 
                     <label className="Review-radio-option">
@@ -712,7 +712,7 @@ function FeedBack() {
               <div className="Review-end-note">
                 <SplitText
                   key="Review-end-note"
-                  text="- We read every review. Your feedback shapes our roadmap, our training programs, and our partnerships. Thank you for helping us build a safer road for everyone. -"
+                  text="- We read every review. Your feedback helps us make Wavepoint better. -"
                   className="review-note"
                   delay={12}
                   duration={0.85}
@@ -731,7 +731,7 @@ function FeedBack() {
             <div className="Review-close-quote">
               <SplitText
                 key="Review-close-quote"
-                text=" Your Vitals Never Sleep. Neither Do We. "
+                text="- Smart Work. Better Results. -"
                 className="review-close-quote"
                 delay={12}
                 duration={0.85}
