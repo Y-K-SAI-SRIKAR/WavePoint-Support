@@ -92,7 +92,7 @@ function Ideas() {
       }),
     })
 
-    const result = await response.json()
+    const result = await parseResponse(response)
     return result
   }
 
@@ -132,6 +132,24 @@ function Ideas() {
     } finally {
       setIsPostingSuggestion(false)
     }
+  }
+
+  const parseResponse = async (response) => {
+      const text = await response.text()
+
+      if (!text.trim()) {
+          throw new Error(
+              `Server returned an empty response (${response.status}).`
+          )
+      }
+
+      try {
+          return JSON.parse(text)
+      } catch {
+          throw new Error(
+              `Server returned an invalid response (${response.status}).`
+          )
+      }
   }
 
   return (

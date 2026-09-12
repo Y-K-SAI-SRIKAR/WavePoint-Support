@@ -188,10 +188,10 @@ function MyRequests() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         EmailId: submittedFormData.email,
-        NexVitalsDeviceId: submittedFormData.deviceId,
+        ClientID: submittedFormData.clientId,
         GrievanceCatagory: submittedFormData.category,
         Complaint: submittedFormData.complaint
-      })
+    })
     })
 
     const result = await response.json()

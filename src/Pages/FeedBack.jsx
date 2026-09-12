@@ -229,7 +229,7 @@ function FeedBack() {
       return
     }
 
-    const clientIdPattern = /^(?=.*\d)(?=.*[^A-Za-z0-9]).{10}$/
+    const clientIdPattern = /^[A-Za-z0-9]{10}$/
 
     if (!clientIdPattern.test(formData.clientId)) {
       setStatus({
