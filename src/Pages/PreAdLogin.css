@@ -1,5 +1,7 @@
 /* PreAdLogin.css */
-
+:root {
+  color-scheme: dark;
+}
 .preadlogin-content {
   position: relative;
   width: 100%;

@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,200;1,300;1,400&display=swap");
-
+:root {
+  color-scheme: dark;
+}
 .updates {
   position: relative;
   width: 100%;

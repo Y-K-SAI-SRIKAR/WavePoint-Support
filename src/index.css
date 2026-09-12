@@ -29,7 +29,9 @@
     font-size: 16px;
   }
 }
-
+:root {
+  color-scheme: dark;
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #9ca3af;
