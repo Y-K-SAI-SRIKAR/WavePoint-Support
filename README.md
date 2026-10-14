@@ -110,7 +110,6 @@ src/
 │   ├── Card.jsx
 │   ├── Modal.jsx
 │   ├── Loader.jsx
-│   └── ErrorBoundary.jsx
 │
 ├── pages/               # Route pages
 │   ├── Login.jsx
@@ -124,38 +123,6 @@ src/
 │   ├── FAQs.jsx
 │   ├── WaveBot.jsx
 │   ├── AdminPanel.jsx
-│   └── NotFound.jsx
-│
-├── services/            # API communication
-│   ├── api.js           # Axios instance
-│   ├── authService.js
-│   ├── supportService.js
-│   ├── requestService.js
-│   ├── feedbackService.js
-│   ├── ideasService.js
-│   ├── updateService.js
-│   └── adminService.js
-│
-├── hooks/               # Custom React hooks
-│   ├── useAuth.js
-│   ├── useFetch.js
-│   ├── useForm.js
-│   └── useNotification.js
-│
-├── context/             # React Context
-│   ├── AuthContext.jsx
-│   └── NotificationContext.jsx
-│
-├── utils/               # Utility functions
-│   ├── validators.js
-│   ├── formatters.js
-│   ├── localStorage.js
-│   └── constants.js
-│
-├── styles/              # TailwindCSS & themes
-│   ├── tailwind.config.js
-│   ├── global.css
-│   └── animations.css
 │
 └── assets/              # Images, icons
     ├── logo.png
